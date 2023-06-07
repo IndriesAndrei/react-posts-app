@@ -8,6 +8,7 @@ import Modal from "./Modal";
 const PostsLists = () => {
     const [text, setText] = useState('');
     const [author, setAuthor] = useState('');
+    const [modalIsVisible, setModalIsVisible] = useState(true);
 
     const textChangeHandler = (e: any) => {
         setText(e.target.value);
@@ -16,15 +17,20 @@ const PostsLists = () => {
     const authorChangeHandler = (e: any) => {
         setAuthor(e.target.value);
     }
+
+    const hideModalHandler = () => {
+        setModalIsVisible(false);
+    }
     
     return (
         <>
-            <Modal>
+            {modalIsVisible ? <Modal onClose={hideModalHandler}>
                 <NewPost 
                     onTextChange={textChangeHandler} 
                     onAuthorChange={authorChangeHandler} 
                 />
-            </Modal>
+            </Modal> : null}
+            
             <ul className={classes.posts}>
                 <Post author={author} body={text} />
                 <Post author={author} body={text} />
