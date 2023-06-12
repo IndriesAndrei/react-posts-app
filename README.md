@@ -1,6 +1,6 @@
 # react-posts-app
 React Posts App
-to run the application amde with Vite: 
+to run the application made with Vite: 
 npm install
 
 npm run dev
